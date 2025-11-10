@@ -1,0 +1,27 @@
+{# product_list.html #}
+{% extends "base.html" %}
+
+{% block title %}Product List{% endblock title %}
+
+{% block content %}
+  <h1>User List</h1>
+  <div class="row">
+    {% for user in users %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+          {% if user.user_image %}
+            <img src="{{ user.user_image.url }}" class="card-img-top" alt="{{ user.username }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ user.username }}</h5>
+                <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+                <p class="card-text"><strong>First Name:</strong> {{ user.first_name }}</p>
+                <p class="card-text"><strong>Last Name:</strong> {{ user.last_name }}</p>
+                <p class="card-text"><strong>Bio:</strong> {{ user.role }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

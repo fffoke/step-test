@@ -1,0 +1,25 @@
+{# product_list.html #}
+{% extends "base.html" %}
+
+{% block title %}Product List{% endblock title %}
+
+{% block content %}
+  <h1>Product List</h1>
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+                <p class="card-text"><strong>Stock Units:</strong> {{ product.stock_units }}</p>
+                <a href="{% url 'shop:product'  product.id  %}">Ссылкак на продукт</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+{% endblock content %}
