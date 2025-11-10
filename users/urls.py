@@ -21,4 +21,6 @@ urlpatterns = [
     path('users_list/', users_list, name='users_list'),
     path('signup/', signup, name='signup'),
     path('signin/', signin, name='signin'),
+    path('user_profile/', user_profile, name='user_profile'),
+    path('user_profile/delete_profile/<int:user_id>/', delete_profile, name="delete_profile"),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import SignUpForm, SignInForm
 
@@ -30,6 +30,15 @@ def signin(request):
     else:
         form = SignInForm()
     return render(request, 'signin.html', {'form':form})
+
+def user_profile(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    return render(request, 'user_profile.html', {'user': user})
+
+def delete_profile(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    user.delete()
+    return redirect('users:users_list')
 
 def signout(request):
     ...

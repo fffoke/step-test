@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+<title>{% block title %} Профиль {{user.username}} {% endblock %}</title>
+{% block content %}
+    <img src="{{user.image.url}}" alt="" width="400" height="400">
+    <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+    <p class="card-text"><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p class="card-text"><strong>Last Name:</strong> {{ user.last_name }}</p>
+    <p class="card-text"><strong>Bio:</strong> {{ user.role }}</p>
+    <p class="card-text"><strong>Number-phone:</strong> {{ user.phone_number }}</p>
+    <form action="url 'users:delete_profile' user.id" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete profile</button>
+    </form> 
+{% endblock %}
